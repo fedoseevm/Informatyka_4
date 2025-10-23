@@ -4,18 +4,20 @@ with open('dane.txt', 'r') as file:
 print(nominaly)
 print(kwoty)
 
-minimum = 100
+minimum = float('inf')
 result = []
 
 for kwota in kwoty:
     iloscNominalow = 0
+    tmp_kwota = kwota
     for i in range(len(nominaly)):
-        iloscNominalow += kwota // nominaly[i]
-        kwota %= nominaly[i]
+        iloscNominalow += tmp_kwota // nominaly[i]
+        tmp_kwota %= nominaly[i]
     
     if iloscNominalow < minimum:
         minimum = iloscNominalow
+        result = [kwota]
     elif iloscNominalow == minimum:
         result.append(kwota)
         
-print(result)
+print(*result, sep=" ")
