@@ -24,4 +24,12 @@ while number != "":
             number = number[len(letter):]
             break
 
+# Version using str.replace (less efficient and not recommended)
+#*****************
+# for letter in romanianNumbers.keys():
+#     while number.__contains__(letter):
+#         result += romanianNumbers[letter]
+#         number = number.replace(letter, "", 1)
+#*****************
+
 print(result)
